@@ -23,6 +23,6 @@ def capture_frames(rtsp_url, output_dir):
     cap.release()
 
 # Example usage
-rtsp_url = "rtsp://192.168.0.146:8554/stream"
+rtsp_url = "rtsp://192.168.0.146/stream"
 output_dir = "./frames"
 capture_frames(rtsp_url, output_dir)
