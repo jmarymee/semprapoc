@@ -1,0 +1,4 @@
+docker run -it --rm -v //c/users/jd/source/repos/qcpython:/home/qcpython python /bin/bash
+
+#Installing OpenCV 
+https://pypi.org/project/opencv-python/
