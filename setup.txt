@@ -1,0 +1,12 @@
+# Install OpenCV
+
+# First ensure PIP is updated
+pip install --upgrade pip
+
+#Then Install OpenCV (Headless no graphic support)
+pip install opencv-contrib-python-headless
+
+#Edit the Python file to point to the IP camera (RTSP server on phone)
+# Also modify the python file to change the frame capture interval
+# Last run the rtspframes.py
+
