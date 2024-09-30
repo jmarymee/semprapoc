@@ -4,6 +4,8 @@ import pathlib
 import os
 import shutil
 import sys
+from PIL import Image
+
 
 # Leave this as False unless you want to see debug output. Mostly print statements
 ifDebug = False
@@ -57,6 +59,27 @@ if ifDebug:
     print(len(output))
     print(len(output1))
 
+
+def show_image_and_close(image_path, duration=5):
+    """Displays an image for a specified duration and then closes it."""
+
+    process = subprocess.Popen(["eog", image_path])  # Replace "eog" with your image viewer
+
+    time.sleep(duration)
+
+    process.terminate()
+
+def showcaps(image_path):
+    # Path to the image file
+    #image_path = '/home/jmarymee/pix/Screenshot_20200222-071807_SeekingArrangement.jpg'
+
+    # Open an image file
+    with Image.open(image_path) as img:
+    # Display image
+        img.show()
+        time.sleep(10)
+        img.close()
+
 def find_files(output2):
     a_start = time.perf_counter()
     vd = []
@@ -71,6 +94,8 @@ def find_files(output2):
                 destPath = destPathBase + file.name
                 if ifDebug: print(destPath)
                 shutil.copyfile(os.path.abspath(file), destPath)
+                show_image_and_close(destPath)
+                os.remove(os.path.abspath(file))
         except PermissionError:
             print("Permission Error")
             continue
